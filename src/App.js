@@ -9,7 +9,8 @@ function App() {
     const [jsonItems, setJsonItems] = useState("Choose your query and click 'Request API'")
 
     const handleRequest = (location, subLocation, board, startingIndex, query) => {
-        fetch(`http://localhost:8082/api/${location}/${subLocation}/${board}/${startingIndex}/${formatQuery(query)}`)
+        let url = `https://jcarbelbide.com/craigslist-api/api/${location}/${subLocation}/${board}/${startingIndex}/${formatQuery(query)}`
+        fetch(url)
             .then(response => response.json())
             .then((result) => {
                 setIsLoaded(true)
